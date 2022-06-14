@@ -1,1 +1,1 @@
-print('you suck)
+&*? print('you suck) &?*
