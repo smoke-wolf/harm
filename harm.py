@@ -7,7 +7,7 @@
 ##############################
 #Client_FILE
 
-import os
+import os, time
 print("!!you've been hacked!!")
 time.sleep(2)
 os.system('pmset sleepnow')
